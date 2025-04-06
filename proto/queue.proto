@@ -1,0 +1,14 @@
+option go_package = "github.com/Fraise/queue";
+
+service Queue {
+  rpc Publish(stream PublishRequest) returns (stream PublishResponse) {}
+}
+
+message PublishRequest {
+  required string topic = 1;
+  required string message = 2;
+}
+
+message PublishResponse {
+  optional string error = 1;
+}
