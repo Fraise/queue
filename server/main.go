@@ -7,6 +7,7 @@ import (
 	"server/database"
 )
 
+//go:generate protoc --proto_path=../proto --go_out=server/grpc --go-grpc_out=server/grpc queue.proto
 func main() {
 	log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
 

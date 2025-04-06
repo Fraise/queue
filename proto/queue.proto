@@ -1,12 +1,14 @@
-option go_package = "github.com/Fraise/queue";
+syntax = "proto3";
+
+option go_package = "./;server";
 
 service Queue {
   rpc Publish(stream PublishRequest) returns (stream PublishResponse) {}
 }
 
 message PublishRequest {
-  required string topic = 1;
-  required string message = 2;
+  string topic = 1;
+  string message = 2;
 }
 
 message PublishResponse {
